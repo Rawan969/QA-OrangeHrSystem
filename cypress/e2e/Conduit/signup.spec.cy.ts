@@ -20,11 +20,12 @@ describe("Conduit signup",()=>{
     })
     it.only('method 3 :login-create new account',()=>{
         const apiPayload = {
-            users:{
-                email:`Rawan${Math.random()*100}@test.com`,
-                password:"123456",
-                username:`Rawan${Math.random()*1000}`
+            user:{
+                username:`Rawan${Math.round((Math.random())*1000)}`,
+                email:`Rawan${Math.round((Math.random())*1000)}@test.com`,
+                password:'24681'
             }
+        
         }
         addUser.conduitNewUserUsingAPI2(apiPayload).then((response)=>{
             expect(response.status).to.equal(201);

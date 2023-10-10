@@ -13,7 +13,7 @@ export default class addUser{
                 user:{
                     username: username,
                     email:email,
-                    password: password
+                    password: password,
                   }
                 
             }
@@ -23,7 +23,7 @@ export default class addUser{
         return cy.api({
             method: 'POST',
             url: URLs.users,
-            body: payload
+            body: payload,
         })
     }
     
