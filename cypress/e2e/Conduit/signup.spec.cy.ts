@@ -18,7 +18,7 @@ describe("Conduit signup",()=>{
     it('method 2 :login-create new account',()=>{
        addUser.conduitNewUserUsingAPI(`Rawan${Math.random()}@test.com`,"123456",`Rawan${Math.random()}`)
     })
-    it.only('method 3 :login-create new account',()=>{
+    it('method 3 :login-create new account',()=>{
         const apiPayload = {
             user:{
                 username:`Rawan${Math.round((Math.random())*1000)}`,
@@ -32,5 +32,8 @@ describe("Conduit signup",()=>{
         })
      })
      
+     it.only('method 4 :login-create new account',()=>{ ////using custom commands
+        addUser.addNewUserViaAPI();
+     })
      
 })
