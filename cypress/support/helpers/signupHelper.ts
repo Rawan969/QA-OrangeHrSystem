@@ -1,3 +1,4 @@
+import userInit from "../init/userInit"
 const baseUrl = Cypress.config().baseUrl
 
 export const URLs={
@@ -25,6 +26,9 @@ export default class addUser{
             url: URLs.users,
             body: payload,
         })
+    }
+    static addNewUserViaAPI(){ 
+        cy.addNewUser(URLs.users,userInit.initUser());
     }
     
 
