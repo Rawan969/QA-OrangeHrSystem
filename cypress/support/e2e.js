@@ -21,3 +21,6 @@ import 'cypress-plugin-api';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+import '@cypress/grep'
+const registerCypressGrep = require('@cypress/grep')
+registerCypressGrep();

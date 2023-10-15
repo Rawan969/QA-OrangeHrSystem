@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/grep": "^4.0.0",
     "@shelex/cypress-allure-plugin": "^2.40.0",
     "@types/mocha": "^10.0.2",
     "allure-commandline": "^2.24.0",

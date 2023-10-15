@@ -1,7 +1,7 @@
 import addUser from "../../support/helpers/signupHelper"
-
-describe("Conduit signup",()=>{
-    it('methode1 :login-create new account',()=>{
+//@ts-ignore
+describe("Conduit signup",{tags:'@smoke'},()=>{
+   /* it('methode1 :login-create new account',()=>{
         cy.request({
             method: 'POST',
             url: 'https://conduit.productionready.io/api/users',
@@ -31,9 +31,10 @@ describe("Conduit signup",()=>{
             expect(response.status).to.equal(201);
         })
      })
-     
-     it.only('method 4 :login-create new account',()=>{ ////using custom commands
+     */
+     it('method 4 :login-create new account',()=>{ ////using custom commands
         addUser.addNewUserViaAPI();
+        
      })
      
 })
