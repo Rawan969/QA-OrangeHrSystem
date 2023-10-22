@@ -36,7 +36,7 @@
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
 
-    "types": ["cypress", "node","cypress-plugin-api"],                                      /* Specify type package names to be included without being referenced in a source file. */
+    "types": ["cypress", "node","cypress-plugin-api","cypress-file-upload"],                                      /* Specify type package names to be included without being referenced in a source file. */
 
 
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */

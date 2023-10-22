@@ -47,7 +47,7 @@ describe("ADD Employee && Personal Details", () => {
       });
     });
   });
-  it.only("personal details", () => {
+  it("personal details", () => {
     cy.get("@emp").then((info: any) => {
       cy.request(
         `https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees/${Id}/personal-details`
