@@ -1,4 +1,4 @@
-import { ICreateEmployeePayload } from "../API/payload/userApiPayload"
+import { ICreateEmployeePayload } from "../API/payload/userSignUpPayload"
 import GenericHelper from "../helpers/genericFunctions"
 export default class userInit {
     static initUser(): ICreateEmployeePayload {

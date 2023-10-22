@@ -1,3 +1,4 @@
+import 'cypress-file-upload'
 /* 
 declare namespace Cypress {
   interface Chainable<Subject> {
