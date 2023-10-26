@@ -2,8 +2,8 @@ import { EmployeePayload } from "../API/payload/employeePayload";
 import {UserPayload} from "../API/payload/userPayload";
 import GenericHelper from "../helpers/genericFunctions";
 
-const firstName:string='Rawan';
-const lastName:string='Nassar';
+export const firstName:string='Ahmad';
+export const lastName:string='Nassar';
 export const username:string=`Rawan${GenericHelper.genericRandomString()}`;
 export const password:string='123456789r';
 const empId:any = `${GenericHelper.genericRandomString()}`;
