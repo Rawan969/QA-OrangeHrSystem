@@ -4,7 +4,7 @@ export const URLs={
     employee:`${baseUrl}/web/index.php/api/v2/pim/employees`,
     user:`${baseUrl}/web/index.php/api/v2/admin/users`
 }
-let empId :number;
+export let empId :number;
 export default class addEmployee{
 static async addNewEmployee(){ 
     await new Cypress.Promise((resolve, reject) => {
