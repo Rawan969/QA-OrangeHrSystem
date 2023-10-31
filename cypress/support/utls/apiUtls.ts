@@ -12,6 +12,7 @@ import {applyLeavePayload} from "../../support/API/payload/applyLeavePayload";
 import {applyLeaveResponse} from "../../support/API/response/applyLeaveResponse";
 import {approveLeaveRequestPayload} from "../../support/API/payload/approveLeaveRequestPayload";
 import {approveLeaveRequestResponse} from "../../support/API/response/approveLeaveRequestResponse";
+import {timesheetIdResponse} from "../../support/API/response/timesheetResponse";
 
 declare global{
     namespace Cypress{
@@ -23,6 +24,8 @@ declare global{
             addEntitlements:(Method:string ,requestUrl:string,addEntitlementPayload:addEntitlementPayload)=>Chainable<addEntitlementResponse>
             applyLeave:(Method:string ,requestUrl:string,applyLeavePayload:applyLeavePayload)=>Chainable<applyLeaveResponse>
             approveLeave:(Method:string ,requestUrl:string,approveLeaveRequestPayload:approveLeaveRequestPayload)=>Chainable<approveLeaveRequestResponse>
+            timesheetId: (Method: string, requestUrl: string, Payload: any) => Chainable<timesheetIdResponse>
+            EditAddTimesheet:(Method: string, requestUrl: string, Payload: any) => Chainable
         }
     }
 }
@@ -104,4 +107,27 @@ Cypress.Commands.add('addNewCandidate',(Method:string ,requestUrl:string,candida
     // }
    })
    .its('body')
+})
+Cypress.Commands.add('timesheetId', (Method: string, requestUrl: string, Payload:any) => {
+   return cy.request({
+       method: Method,
+       url: requestUrl,
+       body: Payload,
+       headers: {
+           'Content-Type': 'application/json'
+       }
+   })
+       .its('body')
+})
+
+Cypress.Commands.add('EditAddTimesheet', (Method: string, requestUrl: string, userPayload:any) => {
+   return cy.request({
+       method: Method,
+       url: requestUrl,
+       body: userPayload,
+       headers: {
+           'Content-Type': 'application/json'
+       }
+   })
+       .its('body')
 })
