@@ -6,8 +6,13 @@ import {EmployeePayload} from "../../support/API/payload/employeePayload";
 import {UserPayload} from "../../support/API/payload/userPayload";
 import {EmployeeResponse} from "../../support/API/response/employeeResponse";
 import {UserResponse} from "../../support/API/response/userResponse";
-
-
+import {addEntitlementPayload} from "../../support/API/payload/addEntitlementsPayload";
+import {addEntitlementResponse} from "../../support/API/response/addEntitlementsResponse";
+import {applyLeavePayload} from "../../support/API/payload/applyLeavePayload";
+import {applyLeaveResponse} from "../../support/API/response/applyLeaveResponse";
+import {approveLeaveRequestPayload} from "../../support/API/payload/approveLeaveRequestPayload";
+import {approveLeaveRequestResponse} from "../../support/API/response/approveLeaveRequestResponse";
+import {timesheetIdResponse} from "../../support/API/response/timesheetResponse";
 
 declare global{
     namespace Cypress{
@@ -16,6 +21,11 @@ declare global{
             addNewCandidate:(Method:string ,requestUrl:string,candidatePayload:ICreateCandidatePayload)=>Chainable<ICreateCandidateResponse>
             addNewEmployee:(Method:string ,requestUrl:string,EmployeePayload:EmployeePayload)=>Chainable<EmployeeResponse>
             addUser:(Method:string ,requestUrl:string,UserPayload:UserPayload)=>Chainable<UserResponse>
+            addEntitlements:(Method:string ,requestUrl:string,addEntitlementPayload:addEntitlementPayload)=>Chainable<addEntitlementResponse>
+            applyLeave:(Method:string ,requestUrl:string,applyLeavePayload:applyLeavePayload)=>Chainable<applyLeaveResponse>
+            approveLeave:(Method:string ,requestUrl:string,approveLeaveRequestPayload:approveLeaveRequestPayload)=>Chainable<approveLeaveRequestResponse>
+            timesheetId: (Method: string, requestUrl: string, Payload: any) => Chainable<timesheetIdResponse>
+            EditAddTimesheet:(Method: string, requestUrl: string, Payload: any) => Chainable
         }
     }
 }
@@ -65,3 +75,59 @@ Cypress.Commands.add('addNewCandidate',(Method:string ,requestUrl:string,candida
     })
     .its('body')
  })
+ Cypress.Commands.add('addEntitlements',(Method:string ,requestUrl:string,addEntitlementPayload:addEntitlementPayload)=>{
+    return cy.request({
+     method:Method,
+     url:requestUrl,
+     body:addEntitlementPayload,
+     // headers:{
+     //     'Content-Type':'application/json'
+     // }
+    })
+    .its('body')
+ })
+ Cypress.Commands.add('applyLeave',(Method:string ,requestUrl:string,applyLeavePayload:applyLeavePayload)=>{
+    return cy.request({
+     method:Method,
+     url:requestUrl,
+     body:applyLeavePayload,
+     // headers:{
+     //     'Content-Type':'application/json'
+     // }
+    })
+    .its('body')
+ })
+ Cypress.Commands.add('approveLeave',(Method:string ,requestUrl:string,approveLeaveRequestPayload:approveLeaveRequestPayload)=>{
+   return cy.request({
+    method:Method,
+    url:requestUrl,
+    body:approveLeaveRequestPayload,
+    // headers:{
+    //     'Content-Type':'application/json'
+    // }
+   })
+   .its('body')
+})
+Cypress.Commands.add('timesheetId', (Method: string, requestUrl: string, Payload:any) => {
+   return cy.request({
+       method: Method,
+       url: requestUrl,
+       body: Payload,
+       headers: {
+           'Content-Type': 'application/json'
+       }
+   })
+       .its('body')
+})
+
+Cypress.Commands.add('EditAddTimesheet', (Method: string, requestUrl: string, userPayload:any) => {
+   return cy.request({
+       method: Method,
+       url: requestUrl,
+       body: userPayload,
+       headers: {
+           'Content-Type': 'application/json'
+       }
+   })
+       .its('body')
+})
